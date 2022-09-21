@@ -15,7 +15,7 @@ BUCKET_NAME = 'fellowship-iykra'
 DESTINATION_FILENAME = 'iykra.jpg'
 
 # Define sourcefile
-SOURCE_FILENAME = 'https://www.techinasia.com/companies/iykra'
+SOURCE_FILENAME = 'https://images.glints.com/unsafe/180x0/glints-dashboard.s3.amazonaws.com/company-logo/39f07a4444445aa75e9ee9b888375f91.png'
 
 # Create a function to upload file to GCP
 def upload_blob(BUCKET_NAME, SOURCE_FILENAME, DESTINATION_FILENAME):   
