@@ -1,3 +1,4 @@
+{{config(materialized='table')}}
 with source_table as (select * from {{source('green','january')}}
 union all
 select * from {{source('green','february')}}
