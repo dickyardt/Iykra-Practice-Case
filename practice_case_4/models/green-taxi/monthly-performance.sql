@@ -1,4 +1,4 @@
-with monthly_performance as (select  EXTRACT(MONTH FROM DATE(lpep_pickup_datetime))  AS month,
+with monthly_summary as (select  EXTRACT(MONTH FROM DATE(lpep_pickup_datetime))  AS month,
         count(trip_distance) as total_pickup,
         sum(trip_distance) as total_trip_distance,
         avg(trip_distance) as average_trip_distance,
@@ -9,4 +9,4 @@ with monthly_performance as (select  EXTRACT(MONTH FROM DATE(lpep_pickup_datetim
 from {{ref('source-table')}}
 group by month
 order by month asc)
-select * from monthly_performance
+select * from monthly_summary
