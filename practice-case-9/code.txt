@@ -1,0 +1,27 @@
+CREATE TABLE mahasiswa(
+	id_mahasiswa SERIAL NOT NULL PRIMARY KEY,
+	nama_mahasiswa VARCHAR(30) NOT NULL,
+	jurusan VARCHAR(15) NOT NULL
+	);
+
+INSERT INTO mahasiswa(nama_mahasiswa, jurusan) VALUES
+	('Dicky', 'Matematika'),
+	('Ardi', 'Ilmu Komputer'),
+	('Dian', 'Fisika');
+	
+CREATE TABLE mahasiswa (
+	id_mahasiswa INTEGER PRIMARY KEY,
+	nama_mahasiswa STRING,
+	jurusan STRING
+)
+WITH (kafka_topic='jdbc_mahasiswa', PARTITIONS=2, REPLICAS=1, value_format='json');
+
+CREATE STREAM stream_mahasiswa(
+	id_mahasiswa INTEGER KEY,
+	nama_mahasiswa STRING,
+	jurusan STRING
+	)
+WITH (kafka_topic='data_mahasiswa',
+	partitions = 1,
+	value_format = 'json',
+	timestamp_format = 'yyyy-MM-dd''T''HH:mm:ss');
